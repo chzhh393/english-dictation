@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="header">
+    <text class="title">单词本</text>
+  </view>
+  <view class="empty" wx:if="{{!wordLists.length}}">
+    <text>还没有单词组，快来创建吧</text>
+  </view>
+  <view class="word-list" wx:else>
+    <view class="word-list-item" 
+      wx:for="{{wordLists}}" 
+      wx:key="id"
+      bindtap="handleItemClick"
+      data-id="{{item.id}}"
+    >
+      <text class="word-list-name">{{item.name}}</text>
+      <text class="word-list-count">{{item.words.length}}个单词</text>
+    </view>
+  </view>
+  <view class="action-btn">
+    <button type="primary" bindtap="handleCreate">新建单词组</button>
+  </view>
+</view> 

@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="header">
+    <text class="title">错题记录</text>
+  </view>
+  <view class="empty" wx:if="{{!wrongWords.length}}">
+    <text>暂无错题记录</text>
+  </view>
+  <view class="wrong-list" wx:else>
+    <!-- TODO: 显示错题列表 -->
+  </view>
+</view> 

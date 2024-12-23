@@ -1,0 +1,39 @@
+.container {
+  min-height: 100vh;
+  padding: 40rpx;
+}
+
+.header {
+  margin: 40rpx 0;
+  text-align: center;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.stats-list {
+  margin-top: 60rpx;
+}
+
+.stats-item {
+  margin: 30rpx 0;
+  padding: 40rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.stats-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.stats-value {
+  font-size: 40rpx;
+  color: #333;
+  font-weight: bold;
+} 

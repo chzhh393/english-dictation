@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/word-list/index",
+    "pages/create/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "英语听写小助手",
+    "navigationBarTextStyle": "black"
+  }
+} 

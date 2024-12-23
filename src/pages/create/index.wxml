@@ -1,0 +1,62 @@
+<view class="container">
+  <view class="form">
+    <view class="form-item">
+      <text class="form-label">单词组名称</text>
+      <input 
+        class="form-input" 
+        placeholder="请输入单词组名称" 
+        model:value="{{ name }}"
+      />
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button 
+      type="primary" 
+      loading="{{ loading }}"
+      bindtap="chooseImage"
+    >
+      {{ loading ? '识别中...' : '选择/拍摄图片' }}
+    </button>
+  </view>
+
+  <block wx:if="{{ wordList.length > 0 }}">
+    <view class="word-list">
+      <view class="word-list-title">识别结果</view>
+      <view 
+        class="word-item" 
+        wx:for="{{ wordList }}" 
+        wx:key="index"
+      >
+        <view class="form-item">
+          <text class="form-label">单词{{ index + 1 }}</text>
+          <input
+            class="form-input"
+            placeholder="单词"
+            value="{{ item.word }}"
+            data-index="{{ index }}"
+            data-field="word"
+            bindinput="handleWordChange"
+          />
+        </view>
+        <view class="form-item">
+          <text class="form-label">释义</text>
+          <input
+            class="form-input"
+            placeholder="释义"
+            value="{{ item.meaning }}"
+            data-index="{{ index }}"
+            data-field="meaning"
+            bindinput="handleWordChange"
+          />
+        </view>
+      </view>
+    </view>
+
+    <view class="submit-button">
+      <button type="primary" bindtap="handleSave">
+        保存单词组
+      </button>
+    </view>
+  </block>
+</view> 

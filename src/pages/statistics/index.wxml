@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="header">
+    <text class="title">学习统计</text>
+  </view>
+  <view class="stats-list">
+    <view class="stats-item">
+      <text class="stats-label">累计单词</text>
+      <text class="stats-value">{{stats.totalWords}}</text>
+    </view>
+    <view class="stats-item">
+      <text class="stats-label">正确率</text>
+      <text class="stats-value">{{stats.correctRate}}%</text>
+    </view>
+    <view class="stats-item">
+      <text class="stats-label">学习时长</text>
+      <text class="stats-value">{{stats.totalTime}}分钟</text>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,17 @@
+{
+  "name": "english-dictation",
+  "version": "1.0.0",
+  "description": "英语听写小助手",
+  "scripts": {
+    "dev": "miniprogram-ci preview",
+    "build": "miniprogram-ci build"
+  },
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^3.9.1",
+    "miniprogram-ci": "^1.9.4",
+    "typescript": "^4.9.5"
+  }
+}
