@@ -1,0 +1,144 @@
+<view class="container">
+  <view class="config-btn" bindtap="toggleConfig">
+    <text>⚙️</text>
+  </view>
+
+  <view class="config-panel" wx:if="{{showConfig}}">
+    <view class="config-header">
+      <text class="config-title">听写设置</text>
+    </view>
+    
+    <scroll-view scroll-y class="config-content">
+      <view class="config-item">
+        <text class="config-label">播放次数</text>
+        <slider 
+          min="1" 
+          max="3" 
+          value="{{tempConfig.playCount}}"
+          show-value
+          data-field="playCount"
+          bindchange="onConfigChange"
+        />
+      </view>
+
+      <view class="config-item">
+        <text class="config-label">播放间隔</text>
+        <slider 
+          min="1" 
+          max="3" 
+          value="{{tempConfig.playInterval}}"
+          show-value
+          data-field="playInterval"
+          bindchange="onConfigChange"
+        />
+      </view>
+
+      <view class="config-item">
+        <text class="config-label">播放英文</text>
+        <switch 
+          checked="{{tempConfig.playEnglish}}"
+          data-field="playEnglish"
+          bindchange="onConfigChange"
+        />
+      </view>
+
+      <view class="config-item">
+        <text class="config-label">播放释义</text>
+        <switch 
+          checked="{{tempConfig.playMeaning}}"
+          data-field="playMeaning"
+          bindchange="onConfigChange"
+        />
+      </view>
+
+      <view class="config-item">
+        <text class="config-label">播放"叮"声</text>
+        <switch 
+          checked="{{tempConfig.playDing}}"
+          data-field="playDing"
+          bindchange="onConfigChange"
+        />
+      </view>
+
+      <view class="config-item">
+        <text class="config-label">展示释义</text>
+        <switch 
+          checked="{{tempConfig.showMeaning}}"
+          data-field="showMeaning"
+          bindchange="onConfigChange"
+        />
+      </view>
+
+      <view class="config-item">
+        <text class="config-label">自动播放下一个</text>
+        <switch 
+          checked="{{tempConfig.autoNext}}"
+          data-field="autoNext"
+          bindchange="onConfigChange"
+        />
+      </view>
+
+      <view class="config-item" wx:if="{{tempConfig.autoNext}}">
+        <text class="config-label">自动播放延时(秒)</text>
+        <slider 
+          min="3" 
+          max="10" 
+          value="{{tempConfig.autoNextDelay}}"
+          show-value
+          data-field="autoNextDelay"
+          bindchange="onConfigChange"
+        />
+      </view>
+    </scroll-view>
+
+    <view class="config-footer">
+      <button 
+        class="footer-btn cancel-btn" 
+        bindtap="cancelConfig"
+      >
+        取消
+      </button>
+      <button 
+        class="footer-btn confirm-btn" 
+        type="primary" 
+        bindtap="saveConfig"
+      >
+        保存
+      </button>
+    </view>
+  </view>
+
+  <view class="header">
+    <text class="title">{{wordList.name}}</text>
+    <text class="progress">{{currentIndex + 1}}/{{wordList.words.length}}</text>
+  </view>
+
+  <view class="dictation-area">
+    <view class="word-card">
+      <text class="meaning" wx:if="{{config.showMeaning}}">
+        {{wordList.words[currentIndex].meaning}}
+      </text>
+    </view>
+
+    <view class="navigation">
+      <button 
+        class="nav-btn"
+        bindtap="prevWord"
+        disabled="{{currentIndex === 0}}"
+      >
+        上一个
+      </button>
+      <button 
+        class="nav-btn"
+        type="primary"
+        bindtap="{{currentIndex === wordList.words.length - 1 ? 'submitDictation' : 'nextWord'}}"
+      >
+        {{currentIndex === wordList.words.length - 1 ? '提交' : '下一个'}}
+      </button>
+    </view>
+  </view>
+
+  <view class="result" wx:if="{{showResult}}">
+    <!-- TODO: 显示听写结果 -->
+  </view>
+</view> 

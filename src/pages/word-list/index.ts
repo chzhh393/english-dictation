@@ -1,13 +1,25 @@
+interface WordList {
+  id: string
+  name: string
+  words: Array<{
+    word: string
+    meaning: string
+  }>
+}
+
 Page({
   data: {
-    wordLists: []
+    wordLists: [] as WordList[]
   },
 
-  onLoad() {
-    // TODO: Load word lists from storage or cloud
-    this.setData({
-      wordLists: []
-    })
+  onShow() {
+    // 每次显示页面时重新加载数据
+    this.loadWordLists()
+  },
+
+  loadWordLists() {
+    const wordLists = wx.getStorageSync('wordLists') || []
+    this.setData({ wordLists })
   },
 
   handleItemClick(e: any) {

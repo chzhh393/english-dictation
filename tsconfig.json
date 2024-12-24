@@ -9,6 +9,8 @@
     "noUnusedParameters": true,
     "baseUrl": ".",
     "lib": ["ES2017"],
+    "outDir": "dist",
+    "rootDir": "src",
     "types": [],
     "typeRoots": [
       "./typings",

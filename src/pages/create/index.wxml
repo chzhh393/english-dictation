@@ -3,57 +3,54 @@
     <view class="form-item">
       <text class="form-label">单词组名称</text>
       <input 
-        class="form-input" 
-        placeholder="请输入单词组名称" 
-        model:value="{{ name }}"
+        class="form-input"
+        placeholder="请输入单词组名称"
+        value="{{name}}"
+        bindinput="onNameInput"
       />
     </view>
   </view>
 
   <view class="action-buttons">
     <button 
-      type="primary" 
-      loading="{{ loading }}"
+      type="primary"
+      loading="{{loading}}"
       bindtap="chooseImage"
     >
-      {{ loading ? '识别中...' : '选择/拍摄图片' }}
+      {{loading ? '识别中...' : '选择/拍摄图片'}}
     </button>
   </view>
 
-  <block wx:if="{{ wordList.length > 0 }}">
+  <block wx:if="{{wordList.length > 0}}">
     <view class="word-list">
-      <view class="word-list-title">识别结果</view>
+      <view class="section-title">识别结果</view>
       <view 
-        class="word-item" 
-        wx:for="{{ wordList }}" 
-        wx:key="index"
+        class="word-item"
+        wx:for="{{wordList}}"
+        wx:key="word"
       >
-        <view class="form-item">
-          <text class="form-label">单词{{ index + 1 }}</text>
-          <input
-            class="form-input"
+        <view class="word-form">
+          <input 
+            class="word-input"
             placeholder="单词"
-            value="{{ item.word }}"
-            data-index="{{ index }}"
+            value="{{item.word}}"
+            data-index="{{index}}"
             data-field="word"
-            bindinput="handleWordChange"
+            bindinput="onWordInput"
           />
-        </view>
-        <view class="form-item">
-          <text class="form-label">释义</text>
-          <input
-            class="form-input"
+          <input 
+            class="word-input"
             placeholder="释义"
-            value="{{ item.meaning }}"
-            data-index="{{ index }}"
+            value="{{item.meaning}}"
+            data-index="{{index}}"
             data-field="meaning"
-            bindinput="handleWordChange"
+            bindinput="onWordInput"
           />
         </view>
       </view>
     </view>
 
-    <view class="submit-button">
+    <view class="action-buttons">
       <button type="primary" bindtap="handleSave">
         保存单词组
       </button>

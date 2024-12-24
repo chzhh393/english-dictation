@@ -2,12 +2,16 @@
   "pages": [
     "pages/index/index",
     "pages/word-list/index",
-    "pages/create/index"
+    "pages/create/index",
+    "pages/dictation/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "英语听写小助手",
     "navigationBarTextStyle": "black"
+  },
+  "useExtendedLib": {
+    "weui": true
   }
 } 
